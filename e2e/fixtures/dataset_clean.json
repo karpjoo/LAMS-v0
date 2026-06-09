@@ -1,0 +1,17 @@
+[
+  {
+    "call_id": "call_clean_0001",
+    "turns": [
+      {
+        "sequence_no": 1,
+        "speaker": "customer",
+        "text": "Hello, I need help with my billing statements."
+      },
+      {
+        "sequence_no": 2,
+        "speaker": "agent",
+        "text": "Hello! I can certainly assist you with billing questions."
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+# 07 Dependency Map
+
+| Dependency ID | Depends On | Required By | Type | Source Artifact | Release Impact | Notes |
+|---|---|---|---|---|---|---|
+| **DEP-001** | Firebase Auth Session (SEC-001) | 모든 페이지 라우팅 & Firestore Rules | Technical / Session | [05_authn_authz_model.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/05_architecture/05_authn_authz_model.md) | **R0** Setup 필수 | 익명 사용자 접근 차단을 위한 1차 관문 |
+| **DEP-002** | 대화 데이터셋 존재 (FR-001) | 평가 라벨(FR-004), LLM 판정(FR-005) 매핑 | Data Entity | [06_physical_schema.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/06_data/06_physical_schema.md) | **R1** Ingestion 필수 | call_id가 Firestore 최상위 키로 매핑됨 |
+| **DEP-003** | 사용자 역할 정보 (SEC-002) | Firestore Security Rules 권한 분기 | Authorization | [05_authn_authz_model.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/05_architecture/05_authn_authz_model.md) | **R0 / R1** 구성 필요 | Admin, Evaluator, Adjudicator 구분 |
+| **DEP-004** | Firestore Batched Write (NFR-001) | 라벨 제출 및 완료 횟수 카운터 동기화 | Data Consistency | [06_physical_schema.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/06_data/06_physical_schema.md) | **R1** 트랜잭션 필수 | label_completion_count 필드 갱신 동기화 |
+| **DEP-005** | 대화 status 필드 (BR-007) | Round 1 blind-spot lock 접근 규칙 | Security Rule | [06_data_security_rules.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/06_data/06_data_security_rules.md) | **R1** Rules 배포 필수 | Round 1 Active 시 타인 평가 조회 차단 |
+| **DEP-006** | 감사 로그 컬렉션 (OPS-001) | 등록, 삭제, 라벨 작성 시 감사 기록 | Operational | [06_data_security_rules.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/06_data/06_data_security_rules.md) | **R1** Logging 필수 | Append-only (Update/Delete 금지) 강제 |
+| **DEP-007** | 외부 LLM / 통계 스키마 (INT-001) | JSON 파일 파서 모듈 | Integration | [06_migration_plan.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/06_data/06_migration_plan.md) | **R1** Parser 필수 | 스키마 일치 유효성 검사 |

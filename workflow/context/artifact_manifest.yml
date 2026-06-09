@@ -1,0 +1,841 @@
+# Artifact Manifest
+# Records actual artifact existence, status, approval state, and metadata.
+
+manifest_version: "1.0.0"
+project: "LAMS-v0"
+
+artifacts:
+  - id: "user_directives"
+    path: "/workflow/00_intake/USER_DIRECTIVES.md"
+    stage: "00_project_intake"
+    status: "approved"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: "human"
+    approved_at: "2026-06-09T21:33:45+09:00"
+    notes: "Copied project specific details from skills directory templates."
+
+  - id: "stage0_project_intake"
+    path: "/workflow/00_intake/00_project_intake.md"
+    stage: "00_project_intake"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    source_artifacts:
+      - "/workflow/00_intake/USER_DIRECTIVES.md"
+      - "/docs/research/260528-revised-research-overview.md"
+    notes: "Draft complete. Contains initial classification, constraints, and recommendations."
+
+  - id: "stage0_result"
+    path: "/workflow/00_intake/result.md"
+    stage: "00_project_intake"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Execution summary for Stage 0."
+
+  - id: "context_packet"
+    path: "/workflow/context/context_packet.md"
+    stage: "03_requirements_acceptance"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Concise handoff packet updated for Stage 4."
+
+  - id: "assumptions"
+    path: "/workflow/context/ASSUMPTIONS.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Assumptions A-104 and A-305 added in Stage 2."
+
+  - id: "open_questions"
+    path: "/workflow/context/OPEN_QUESTIONS.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Open questions Q-103 ~ Q-105 added in Stage 2."
+
+  - id: "rejected_options"
+    path: "/workflow/context/REJECTED_OPTIONS.md"
+    stage: "00_project_intake"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Initialized with no rejected options."
+
+  - id: "traceability_matrix"
+    path: "/workflow/context/TRACEABILITY_MATRIX.md"
+    stage: "00_project_intake"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Lightweight trace matrix linking directives and research overview to future stages."
+
+  - id: "approval_log"
+    path: "/workflow/context/APPROVAL_LOG.md"
+    stage: "00_project_intake"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Track approval status of artifacts."
+
+  - id: "existing_context_review"
+    path: "/workflow/00_intake/00_existing_context_review.md"
+    stage: "00_project_intake"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    notes: "Greenfield project, no legacy code or deploy configs to review."
+
+  - id: "stage1_service_goal"
+    path: "/workflow/01_goal/01_service_goal.md"
+    stage: "01_service_goal_definition"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    source_artifacts:
+      - "/workflow/00_intake/00_project_intake.md"
+      - "/workflow/00_intake/USER_DIRECTIVES.md"
+      - "/docs/research/260528-revised-research-overview.md"
+    notes: "Core service goal definitions, target users, desired outcomes, and success metrics."
+
+  - id: "stage1_result"
+    path: "/workflow/01_goal/result.md"
+    stage: "01_service_goal_definition"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Execution summary for Stage 1."
+
+  - id: "stage2_stakeholders"
+    path: "/workflow/02_stakeholders_risk/02_stakeholders.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    source_artifacts:
+      - "/workflow/01_goal/01_service_goal.md"
+    notes: "Stakeholder register, user roles, and privileged actors."
+
+  - id: "stage2_risk_privacy_screening"
+    path: "/workflow/02_stakeholders_risk/02_risk_privacy_screening.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    notes: "Screening of security, privacy, compliance and data boundaries."
+
+  - id: "stage2_role_permission_matrix"
+    path: "/workflow/02_stakeholders_risk/02_role_permission_matrix.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Conditional file for role permissions."
+
+  - id: "stage2_data_exposure_map"
+    path: "/workflow/02_stakeholders_risk/02_data_exposure_map.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Conditional file mapping data categories to actors."
+
+  - id: "stage2_admin_power_review"
+    path: "/workflow/02_stakeholders_risk/02_admin_power_review.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Conditional file mapping admin powers and mitigations."
+
+  - id: "stage2_result"
+    path: "/workflow/02_stakeholders_risk/result.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Execution summary for Stage 2."
+
+  - id: "stage2_external_transfer_register"
+    path: "/workflow/02_stakeholders_risk/02_external_transfer_register.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "No direct external API transfers exist within the client application boundary (Option B)."
+
+  - id: "stage2_audit_accountability_needs"
+    path: "/workflow/02_stakeholders_risk/02_audit_accountability_needs.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Auditable needs integrated as lightweight collection logs, separate matrix not required."
+
+  - id: "stage2_compliance_risk_notes"
+    path: "/workflow/02_stakeholders_risk/02_compliance_risk_notes.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "IRB guidelines covered in risk screening, separate compliance matrix not required."
+
+  - id: "stage2_abuse_misuse_cases"
+    path: "/workflow/02_stakeholders_risk/02_abuse_misuse_cases.md"
+    stage: "02_stakeholder_risk_framing"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Closed internal research tool, extensive abuse scenarios not applicable."
+
+  - id: "stage3_requirements"
+    path: "/workflow/03_requirements/03_requirements.md"
+    stage: "03_requirements_acceptance"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    source_artifacts:
+      - "/workflow/01_goal/01_service_goal.md"
+      - "/workflow/02_stakeholders_risk/02_stakeholders.md"
+      - "/workflow/02_stakeholders_risk/02_risk_privacy_screening.md"
+    notes: "Functional, Non-Functional, Security and Operational Requirements."
+
+  - id: "stage3_acceptance_criteria"
+    path: "/workflow/03_requirements/03_acceptance_criteria.md"
+    stage: "03_requirements_acceptance"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    source_artifacts:
+      - "/workflow/03_requirements/03_requirements.md"
+    notes: "Given-When-Then criteria mapped to each FR and SEC requirement."
+
+  - id: "stage3_traceability_matrix"
+    path: "/workflow/03_requirements/03_traceability_matrix.md"
+    stage: "03_requirements_acceptance"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    approved_by: null
+    approved_at: null
+    notes: "Traceability matrix mapping goals and risks to requirements and criteria."
+
+  - id: "stage3_result"
+    path: "/workflow/03_requirements/result.md"
+    stage: "03_requirements_acceptance"
+    status: "draft"
+    created_or_updated_by: "agent"
+    approval_required: false
+    approved_by: null
+    approved_at: null
+    notes: "Execution summary for Stage 3."
+
+  - id: "stage3_nfr_requirements"
+    path: "/workflow/03_requirements/03_nfr_requirements.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "NFRs integrated in 03_requirements.md."
+
+  - id: "stage3_security_privacy_requirements"
+    path: "/workflow/03_requirements/03_security_privacy_requirements.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Security and privacy requirements integrated in 03_requirements.md."
+
+  - id: "stage3_scenarios_edge_cases"
+    path: "/workflow/03_requirements/03_scenarios_edge_cases.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Scenarios and edge cases integrated in 03_requirements.md."
+
+  - id: "stage3_scope_candidates"
+    path: "/workflow/03_requirements/03_scope_candidates.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Scope boundary candidates integrated in 03_requirements.md."
+
+  - id: "stage3_requirements_open_questions"
+    path: "/workflow/03_requirements/03_requirements_open_questions.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+  - id: "stage3_requirements_open_questions"
+    path: "/workflow/03_requirements/03_requirements_open_questions.md"
+    stage: "03_requirements_acceptance"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Unresolved requirements questions integrated in 03_requirements.md."
+
+  - id: "stage5_architecture_plan"
+    path: "/workflow/05_architecture/05_architecture_plan.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/03_requirements/03_requirements.md"
+      - "/workflow/04_domain/04_domain_model.md"
+    notes: "Detailed architecture drivers, options, and recommended stack."
+
+  - id: "stage5_module_boundaries"
+    path: "/workflow/05_architecture/05_module_boundaries.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/05_architecture/05_architecture_plan.md"
+    notes: "Defines runtime containers and MOD-001 ~ MOD-005 boundaries."
+
+  - id: "stage5_architecture_decisions"
+    path: "/workflow/05_architecture/05_architecture_decisions.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "ADR records for direct serverless stack, offline pipeline, and direct rules."
+
+  - id: "stage5_api_contracts"
+    path: "/workflow/05_architecture/05_api_contracts.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Firestore routes, schemas, and query/write contracts."
+
+  - id: "stage5_integration_contracts"
+    path: "/workflow/05_architecture/05_integration_contracts.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Firebase Authentication and client-side JSON ingestion contracts."
+
+  - id: "stage5_event_contracts"
+    path: "/workflow/05_architecture/05_event_contracts.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Event triggers and transaction batching behaviors."
+
+  - id: "stage5_authn_authz_model"
+    path: "/workflow/05_architecture/05_authn_authz_model.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Access control model and Firestore rules draft."
+
+  - id: "stage5_security_privacy_architecture"
+    path: "/workflow/05_architecture/05_security_privacy_architecture.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "PII warn scans and read isolation patterns."
+
+  - id: "stage5_operational_architecture"
+    path: "/workflow/05_architecture/05_operational_architecture.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Hosting deployments, config vars, and errors strategies."
+
+  - id: "stage5_brownfield_compatibility"
+    path: "/workflow/05_architecture/05_brownfield_compatibility_plan.md"
+    stage: "05_architecture_contracts"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Greenfield project, no legacy systems to match."
+
+  - id: "stage5_traceability_matrix"
+    path: "/workflow/05_architecture/05_architecture_traceability_matrix.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Mape requirements and invariants to architecture elements."
+
+  - id: "stage5_result"
+    path: "/workflow/05_architecture/result.md"
+    stage: "05_architecture_contracts"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated results of Stage 5."
+
+  - id: "stage6_conceptual_data_model"
+    path: "/workflow/06_data/06_conceptual_data_model.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Defines key data concepts, boundaries, ownership, and sensitivity."
+
+  - id: "stage6_logical_schema"
+    path: "/workflow/06_data/06_logical_schema.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Technology-independent schema defining records, fields, types, and constraints."
+
+  - id: "stage6_query_patterns"
+    path: "/workflow/06_data/06_query_patterns.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Specifies read/write query filters, sorting, and authorization conditions."
+
+  - id: "stage6_physical_schema"
+    path: "/workflow/06_data/06_physical_schema.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Defines Firestore collection structures, documents, and transaction boundaries."
+
+  - id: "stage6_indexes"
+    path: "/workflow/06_data/06_indexes.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Specifies single and composite Firestore indexes to prevent runtime errors."
+
+  - id: "stage6_data_security_rules"
+    path: "/workflow/06_data/06_data_security_rules.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Defines security rule intents for client-side direct database connections."
+
+  - id: "stage6_retention_deletion_policy"
+    path: "/workflow/06_data/06_retention_deletion_policy.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    notes: "Establishes data retention rules, cascading deletes, and permanent log rules."
+
+  - id: "stage6_migration_plan"
+    path: "/workflow/06_data/06_migration_plan.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Specifies file ingestion flows, PII scanning triggers, and provisioning seeds."
+
+  - id: "stage6_seed_fixture_strategy"
+    path: "/workflow/06_data/06_seed_fixture_strategy.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    notes: "Outlines mock datasets and profiles for local testing and unit tests."
+
+  - id: "stage6_data_design_traceability"
+    path: "/workflow/06_data/06_data_design_traceability.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    notes: "Ensures trace mapping from requirements/domain concepts to schema records."
+
+  - id: "stage6_result"
+    path: "/workflow/06_data/result.md"
+    stage: "06_data_design"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Execution summary for Stage 6."
+
+  - id: "stage7_mvp_scope"
+    path: "/workflow/07_mvp_release/07_mvp_scope.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Detailed MVP scope boundaries."
+
+  - id: "stage7_release_slices"
+    path: "/workflow/07_mvp_release/07_release_slices.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Release slicing plans for R0, R1, and R2."
+
+  - id: "stage7_out_of_scope"
+    path: "/workflow/07_mvp_release/07_out_of_scope.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Non-scope items definitions."
+
+  - id: "stage7_dependency_map"
+    path: "/workflow/07_mvp_release/07_dependency_map.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Dependency mapping for MVP components."
+
+  - id: "stage7_scope_traceability_matrix"
+    path: "/workflow/07_mvp_release/07_scope_traceability_matrix.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Requirements to scope traceability."
+
+  - id: "stage7_result"
+    path: "/workflow/07_mvp_release/result.md"
+    stage: "07_mvp_scope_release_slicing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated Stage 7 results."
+
+  - id: "stage8_test_strategy"
+    path: "/workflow/08_test_strategy/08_test_strategy.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Validation strategy and requirements mapping."
+
+  - id: "stage8_acceptance_tests"
+    path: "/workflow/08_test_strategy/08_acceptance_tests.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Detailed acceptance test specifications."
+
+  - id: "stage8_validation_commands"
+    path: "/workflow/08_test_strategy/08_validation_commands.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Validation commands and runner script specifications."
+
+  - id: "stage8_manual_test_plan"
+    path: "/workflow/08_test_strategy/08_manual_test_plan.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Manual testing and responsive UX verification plan."
+
+  - id: "stage8_test_data_fixtures"
+    path: "/workflow/08_test_strategy/08_test_data_fixtures.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Test data fixtures and roles definition."
+
+  - id: "stage8_security_privacy_tests"
+    path: "/workflow/08_test_strategy/08_security_privacy_tests.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Specialized security rules and privacy validations."
+
+  - id: "stage8_result"
+    path: "/workflow/08_test_strategy/result.md"
+    stage: "08_test_strategy_validation"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated Stage 8 test strategy results."
+
+  - id: "stage9_task_source_map"
+    path: "/workflow/09_tasks/09_task_source_map.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Source mappings from requirements/architecture to tasks."
+
+  - id: "stage9_task_inventory"
+    path: "/workflow/09_tasks/09_task_inventory.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Master index list of the 17 implementation tasks."
+
+  - id: "stage9_task_cards"
+    path: "/workflow/09_tasks/09_task_cards.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Detailed task cards mapping specifications and DoD."
+
+  - id: "stage9_dependency_order"
+    path: "/workflow/09_tasks/09_dependency_order.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Topological sort ordering for task execution tracks."
+
+  - id: "stage9_traceability_matrix"
+    path: "/workflow/09_tasks/09_traceability_matrix.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Bidirectional traceability matrix mapping task items."
+
+  - id: "stage9_result"
+    path: "/workflow/09_tasks/result.md"
+    stage: "09_task_breakdown"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated results and summary statistics for Stage 9."
+
+  - id: "stage10_implementation_prompts"
+    path: "/workflow/10_prompts/10_implementation_prompts.md"
+    stage: "10_implementation_prompt_writing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/09_tasks/09_task_cards.md"
+      - "/workflow/09_tasks/09_dependency_order.md"
+    notes: "Official Stage 10 implementation prompts."
+
+  - id: "stage10_prompt_handoff_packets"
+    path: "/workflow/10_prompts/10_prompt_handoff_packets.md"
+    stage: "10_implementation_prompt_writing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/10_prompts/10_implementation_prompts.md"
+    notes: "Handoff packets for fresh Stage 11 sessions."
+
+  - id: "stage10_result"
+    path: "/workflow/10_prompts/result.md"
+    stage: "10_implementation_prompt_writing"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated results and summary statistics for Stage 10."
+
+  - id: "stage11_result"
+    path: "/workflow/11_implementation_results/result.md"
+    stage: "11_tdd_implementation_loop"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated results and build validations for Stage 11."
+
+  - id: "stage12_code_review"
+    path: "/workflow/12_review_release_handoff/12_code_review.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/11_implementation_results/result.md"
+    notes: "Review of requirement satisfaction and code quality."
+
+  - id: "stage12_security_privacy_review"
+    path: "/workflow/12_review_release_handoff/12_security_privacy_review.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/12_review_release_handoff/12_code_review.md"
+    notes: "Access control, data security rules, and PII scan validation."
+
+  - id: "stage12_release_readiness"
+    path: "/workflow/12_review_release_handoff/12_release_readiness.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/12_review_release_handoff/12_security_privacy_review.md"
+    notes: "Release readiness candidate summary and checklist."
+
+  - id: "stage12_deployment_plan"
+    path: "/workflow/12_review_release_handoff/12_deployment_plan.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Steps for deployment and staging validation."
+
+  - id: "stage12_release_notes"
+    path: "/workflow/12_review_release_handoff/12_release_notes.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Release notes for version v0.1.0-MVP."
+
+  - id: "stage12_documentation_handoff"
+    path: "/workflow/12_review_release_handoff/12_documentation_handoff.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Verification of developer setup and user documentation."
+
+  - id: "stage12_operations_runbook"
+    path: "/workflow/12_review_release_handoff/12_operations_runbook.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    notes: "Operations runbook for LAMS-v0 systems."
+
+  - id: "stage12_compliance_review"
+    path: "/workflow/12_review_release_handoff/12_compliance_review.md"
+    stage: "12_review_release_handoff"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Closed internal research tool, commercial/regulation compliance review not applicable."
+
+  - id: "stage12_migration_readiness"
+    path: "/workflow/12_review_release_handoff/12_migration_readiness.md"
+    stage: "12_review_release_handoff"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Greenfield database, data/schema migration is not applicable."
+
+  - id: "stage12_incident_rollback_plan"
+    path: "/workflow/12_review_release_handoff/12_incident_rollback_plan.md"
+    stage: "12_review_release_handoff"
+    status: "not_applicable"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Rollback procedure is simple and covered directly in the deployment plan."
+
+  - id: "stage12_result"
+    path: "/workflow/12_review_release_handoff/result.md"
+    stage: "12_review_release_handoff"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated results and final approval package for Stage 12."
+
+  - id: "stage13_workflow_retrospective"
+    path: "/workflow/13_retrospective/13_workflow_retrospective.md"
+    stage: "13_retrospective"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/12_review_release_handoff/result.md"
+    notes: "Main Stage 13 retrospective document outlining scope, stages review, and evaluation."
+
+  - id: "stage13_agent_failure_patterns"
+    path: "/workflow/13_retrospective/13_agent_failure_patterns.md"
+    stage: "13_retrospective"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/13_retrospective/13_workflow_retrospective.md"
+    notes: "Detailed agent strengths, failure pattern analysis, and human judgment points."
+
+  - id: "stage13_skill_improvement_backlog"
+    path: "/workflow/13_retrospective/13_skill_improvement_backlog.md"
+    stage: "13_retrospective"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/13_retrospective/13_agent_failure_patterns.md"
+    notes: "Prioritized backlog of workflow improvements and lifecycle recommendations."
+
+  - id: "stage13_reusable_lessons"
+    path: "/workflow/13_retrospective/13_reusable_lessons.md"
+    stage: "13_retrospective"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: true
+    source_artifacts:
+      - "/workflow/13_retrospective/13_workflow_retrospective.md"
+    notes: "Extracted reusable workflow, validation, and design lessons learned."
+
+  - id: "stage13_result"
+    path: "/workflow/13_retrospective/result.md"
+    stage: "13_retrospective"
+    status: "ready_for_review"
+    created_or_updated_by: "agent"
+    approval_required: false
+    notes: "Consolidated Stage 13 results and final approval package."
+
+
+
+
+

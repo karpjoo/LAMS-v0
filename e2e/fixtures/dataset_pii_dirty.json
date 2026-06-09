@@ -1,0 +1,12 @@
+[
+  {
+    "call_id": "call_dirty_0001",
+    "turns": [
+      {
+        "sequence_no": 1,
+        "speaker": "customer",
+        "text": "Hi, my mobile number is 010-9876-5432 and my backup is 01011112222."
+      }
+    ]
+  }
+]

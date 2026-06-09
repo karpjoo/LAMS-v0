@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Check if the user has an authenticated session
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Retrieve profile data for the authenticated user safely
+    function getUserProfile() {
+      return request.auth != null && exists(/databases/$(database)/documents/users/$(request.auth.uid)) ?
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data :
+        null;
+    }
+    
+    // Check if the authenticated user has the 'Admin' role
+    function isAdmin() {
+      return isAuthenticated() && 
+        getUserProfile() != null && 
+        getUserProfile().role == 'Admin';
+    }
+
+    // Check if the user is designated as an Adjudicator or is an Admin
+    function isAdjudicator() {
+      return isAuthenticated() && 
+        getUserProfile() != null && 
+        (getUserProfile().is_adjudicator == true || getUserProfile().role == 'Admin');
+    }
+    
+    // 1. User Profiles
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    
+    // 2. Audit Logs (Append-Only)
+    match /audit_logs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAuthenticated();
+      allow update, delete: if false;
+    }
+    
+    // 3. Dashboard Statistics
+    match /dashboard/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    
+    // 4. Conversations
+    match /conversations/{callId} {
+      allow read: if isAuthenticated();
+      allow create, delete: if isAdmin();
+      allow update: if isAuthenticated();
+      
+      // 5. Labels (Evaluator Input)
+      match /labels/{labelId} {
+        // Read: Allow if Admin, or if owner (via UID match or user_id field), or if parent status is no longer Round 1 Active (e.g. Round 2/3, Consensus Reached)
+        allow read: if isAdmin() || (
+          isAuthenticated() && (
+            labelId == request.auth.uid ||
+            (resource != null && 'user_id' in resource.data && resource.data.user_id == request.auth.uid) || 
+            (exists(/databases/$(database)/documents/conversations/$(callId)) && 
+             get(/databases/$(database)/documents/conversations/$(callId)).data.status in ['Round 2 Active', 'Round 3 Active', 'Consensus Reached'])
+          )
+        );
+        
+        // Write: Allow if Admin (for cleanup) or owner user, provided parent conversation is not locked
+        allow create, update: if isAdmin() || (
+          isAuthenticated() && 
+          request.resource.data.user_id == request.auth.uid && 
+          exists(/databases/$(database)/documents/conversations/$(callId)) && 
+          get(/databases/$(database)/documents/conversations/$(callId)).data.status != 'Consensus Reached'
+        );
+          
+        // Delete: Allowed only for Admin
+        allow delete: if isAdmin();
+      }
+      
+      // 6. LLM Predictions Ingestion
+      match /llm_results/{docId} {
+        allow read: if isAuthenticated();
+        allow write: if isAdmin();
+      }
+      
+      // 7. Gold Standard Verdict (Adjudication Final Result)
+      match /gold_standard/{docId} {
+        allow read: if isAuthenticated();
+        allow create: if isAdjudicator() || (
+          isAuthenticated() && 
+          getAfter(/databases/$(database)/documents/conversations/$(callId)).data.status == 'Consensus Reached' &&
+          get(/databases/$(database)/documents/conversations/$(callId)).data.status != 'Round 3 Active'
+        );
+        allow update, delete: if isAdjudicator();
+      }
+    }
+  }
+}

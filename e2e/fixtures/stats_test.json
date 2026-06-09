@@ -1,0 +1,13 @@
+{
+  "kappa_statistics": {
+    "fleiss_kappa": {
+      "model_agreement": 0.72,
+      "evaluator_agreement": 0.81
+    },
+    "model_accuracy": {
+      "gpt4": 0.85,
+      "gemini15": 0.78,
+      "claude3": 0.82
+    }
+  }
+}

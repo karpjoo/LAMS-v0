@@ -89,3 +89,10 @@ React 기반의 프론트엔드와 Firebase(Auth, Firestore, Hosting) Classic Se
 - **상세 아키텍처 설계**: [05_architecture_plan.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/05_architecture/05_architecture_plan.md)
 - **보안 및 개인정보 보호 규칙**: [12_security_privacy_review.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/12_review_release_handoff/12_security_privacy_review.md)
 - **운영 런북 및 장애 조치 가이드**: [12_operations_runbook.md](file:///Users/karpjoojeong/Dropbox/1-Research/1.Systems/1-Development/Agentic-Coding/LAMS-v0/workflow/12_review_release_handoff/12_operations_runbook.md)
+
+## 4. Development Workflow
+
+This system was developed using MACOW  
+(Manual Agentic Coding Workflow), a human-in-the-loop agentic coding workflow
+based on staged artifacts, explicit review gates, traceability, and iterative
+workflow improvement.

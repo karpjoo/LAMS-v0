@@ -8,6 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "dev:emu": "firebase emulators:start --project demo-lams-v0",
+    "test": "vitest run test --exclude test/rules.spec.js && firebase emulators:exec --project demo-lams-v0 \"vitest run test/rules.spec.js && playwright test\"",
     "test:rules": "vitest run test/rules.spec.js",
     "test:unit": "vitest run test --exclude test/rules.spec.js",
     "test:e2e": "playwright test"
